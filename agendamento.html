@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agendar horário — Nega D'Mel</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="drip">Nega D'Mel</span></a>
+    <nav class="main-nav">
+      <a href="index.html">Início</a>
+      <a href="estilos.html">Estilos de trança</a>
+      <a href="agendamento.html" class="active">Agendar horário</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Abrir menu"><i data-lucide="menu"></i></button>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="wrap">
+    <span class="kicker">agendamento</span>
+    <h1>Agende seu <span class="gradient-text">horário</span></h1>
+    <p class="lead">
+      Escolha a data e o horário no calendário, preencha seus dados e envie —
+      sua solicitação vai direto pro WhatsApp da Nega D'Mel pra confirmação.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap booking-layout">
+
+    <div class="calendar-card">
+      <div class="calendar-head">
+        <button type="button" id="prevMonth" aria-label="Mês anterior">‹</button>
+        <span class="month-label" id="monthLabel"></span>
+        <button type="button" id="nextMonth" aria-label="Próximo mês">›</button>
+      </div>
+      <div class="weekday-row" id="weekdayRow"></div>
+      <div class="day-grid" id="calendarGrid"></div>
+      <p class="calendar-note">Não atendo aos domingos. Datas passadas ficam desativadas.</p>
+
+      <div class="time-slots">
+        <h3>Horários disponíveis</h3>
+        <div class="slot-grid">
+          <button type="button" class="slot-btn" data-time="09:00">09:00</button>
+          <button type="button" class="slot-btn" data-time="10:30">10:30</button>
+          <button type="button" class="slot-btn" data-time="12:00">12:00</button>
+          <button type="button" class="slot-btn" data-time="14:00">14:00</button>
+          <button type="button" class="slot-btn" data-time="15:30">15:30</button>
+          <button type="button" class="slot-btn" data-time="17:00">17:00</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <h2>Seus dados</h2>
+      <p class="form-sub">Preencha tudo certinho pra confirmarmos rapidinho pelo WhatsApp.</p>
+
+      <div class="selection-summary">
+        <span>Data selecionada: <b id="summaryDate">não selecionada</b></span>
+        <span>Horário selecionado: <b id="summaryTime">não selecionado</b></span>
+        <span class="fee-line" id="summaryFee">Selecione a cidade para ver a taxa</span>
+      </div>
+
+      <form id="bookingForm" novalidate>
+        <input type="hidden" id="selectedDateInput">
+        <input type="hidden" id="selectedTimeInput">
+
+        <div class="field">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+        </div>
+
+        <div class="field">
+          <label for="telefone">Telefone / WhatsApp</label>
+          <input type="tel" id="telefone" name="telefone" placeholder="(11) 90000-0000" required>
+        </div>
+
+        <div class="field">
+          <label for="estilo">Estilo de trança desejado</label>
+          <select id="estilo" name="estilo" required>
+            <option value="">Selecione um estilo</option>
+            <option value="Box Braids">Box Braids</option>
+            <option value="Trança Nagô">Trança Nagô</option>
+            <option value="Fulani Braids">Fulani Braids</option>
+            <option value="Twist Senegalês">Twist Senegalês</option>
+            <option value="Goddess Braids">Goddess Braids</option>
+            <option value="Tranças Infantis">Tranças Infantis</option>
+            <option value="Outro / vou combinar">Outro / vou combinar</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Você é de Louveira ou Vinhedo?</label>
+          <div class="city-options">
+            <label class="city-option">
+              <input type="radio" name="cidade" value="louveira">
+              <span class="city-name">Louveira</span>
+              <span class="city-fee">Taxa: R$ 10,00</span>
+            </label>
+            <label class="city-option">
+              <input type="radio" name="cidade" value="vinhedo">
+              <span class="city-name">Vinhedo</span>
+              <span class="city-fee">Taxa: R$ 20,00</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="observacoes">Observações (opcional)</label>
+          <textarea id="observacoes" name="observacoes" placeholder="Cor, tamanho, referência de foto, alguma restrição no couro cabeludo..."></textarea>
+        </div>
+
+        <p class="form-note" id="formError" style="display:none; color:#c979f0; font-weight:700;"></p>
+
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Enviar agendamento pelo WhatsApp</button>
+        <p class="form-note">Ao enviar, o app do WhatsApp abre com sua solicitação pronta pra Nega D'Mel confirmar o horário.</p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Nega D'Mel</h4>
+        <p style="max-width:32ch">Trancista em Louveira e Vinhedo. Trança é postura — agende o seu horário.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="estilos.html">Estilos de trança</a></li>
+          <li><a href="agendamento.html">Agendar horário</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://wa.me/5511989708027" target="_blank" rel="noopener">WhatsApp: 11 98970-8027</a></li>
+          <li><a href="https://instagram.com/negadmel" target="_blank" rel="noopener">Instagram: @negadmel</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Nega D'Mel · Trança é postura</span>
+      <span>Louveira &amp; Vinhedo — SP</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/agendamento.js"></script>
+<script>lucide.createIcons();</script>
+</body>
+</html>
