@@ -7,4 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
       nav.classList.toggle('open');
     });
   }
+
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
 });

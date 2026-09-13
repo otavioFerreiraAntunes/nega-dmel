@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agendar horário — Nega D'Mel</title>
 <link rel="stylesheet" href="css/style.css">
-<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://unpkg.com/lucide@0.468.0"></script>
 </head>
 <body>
 
@@ -43,18 +43,23 @@
       </div>
       <div class="weekday-row" id="weekdayRow"></div>
       <div class="day-grid" id="calendarGrid"></div>
-      <p class="calendar-note">Não atendo aos domingos. Datas passadas ficam desativadas.</p>
+      <p class="calendar-note">Atendimento a domicílio aos sábados e domingos, a partir das 11h. Datas passadas ficam desativadas.</p>
 
       <div class="time-slots">
         <h3>Horários disponíveis</h3>
         <div class="slot-grid">
-          <button type="button" class="slot-btn" data-time="09:00">09:00</button>
-          <button type="button" class="slot-btn" data-time="10:30">10:30</button>
+          <button type="button" class="slot-btn" data-time="11:00">11:00</button>
           <button type="button" class="slot-btn" data-time="12:00">12:00</button>
+          <button type="button" class="slot-btn" data-time="13:00">13:00</button>
           <button type="button" class="slot-btn" data-time="14:00">14:00</button>
-          <button type="button" class="slot-btn" data-time="15:30">15:30</button>
+          <button type="button" class="slot-btn" data-time="15:00">15:00</button>
+          <button type="button" class="slot-btn" data-time="16:00">16:00</button>
           <button type="button" class="slot-btn" data-time="17:00">17:00</button>
+          <button type="button" class="slot-btn" data-time="18:00">18:00</button>
+          <button type="button" class="slot-btn" data-time="19:00">19:00</button>
         </div>
+        <br>
+        <p>Caso seu horario não esteja disponível, entre em contato pelo <a href="https://wa.me/5511989708027" target="_blank" rel="noopener noreferrer"><span style="color:#c979f0">WhatsApp</span></a>.</p>
       </div>
     </div>
 
@@ -74,25 +79,30 @@
 
         <div class="field">
           <label for="nome">Nome completo</label>
-          <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome" autocomplete="name" maxlength="100" required>
         </div>
 
         <div class="field">
           <label for="telefone">Telefone / WhatsApp</label>
-          <input type="tel" id="telefone" name="telefone" placeholder="(11) 90000-0000" required>
+          <input type="tel" id="telefone" name="telefone" placeholder="(11) 90000-0000" autocomplete="tel" maxlength="20" required>
         </div>
 
         <div class="field">
           <label for="estilo">Estilo de trança desejado</label>
           <select id="estilo" name="estilo" required>
             <option value="">Selecione um estilo</option>
-            <option value="Box Braids">Box Braids</option>
-            <option value="Trança Nagô">Trança Nagô</option>
-            <option value="Fulani Braids">Fulani Braids</option>
-            <option value="Twist Senegalês">Twist Senegalês</option>
-            <option value="Goddess Braids">Goddess Braids</option>
-            <option value="Tranças Infantis">Tranças Infantis</option>
-            <option value="Outro / vou combinar">Outro / vou combinar</option>
+            <option value="Nagô simples">Nagô simples</option>
+            <option value="Nagô desenhada">Nagô desenhada</option>
+            <option value="Nagô simples + jumbo">Nagô simples + jumbo</option>
+            <option value="Nagô desenhada + jumbo">Nagô desenhada + jumbo</option>
+            <option value="Twist">Twist</option>
+            <option value="Twist + jumbo">Twist + jumbo</option>
+            <option value="Flat Twist">Flat Twist</option>
+            <option value="Ghana Braids">Ghana Braids</option>
+            <option value="Ghana Braids + jumbo">Ghana Braids + jumbo</option>
+            <option value="Boxeadora">Boxeadora</option>
+            <option value="Boxeadora + jumbo">Boxeadora + jumbo</option>
+            <option value="Outro modelo / vou enviar referência">Outro modelo / vou enviar referência</option>
           </select>
         </div>
 
@@ -114,7 +124,7 @@
 
         <div class="field">
           <label for="observacoes">Observações (opcional)</label>
-          <textarea id="observacoes" name="observacoes" placeholder="Cor, tamanho, referência de foto, alguma restrição no couro cabeludo..."></textarea>
+          <textarea id="observacoes" name="observacoes" placeholder="Cor, tamanho, referência de foto, alguma restrição no couro cabeludo..." maxlength="1000"></textarea>
         </div>
 
         <p class="form-note" id="formError" style="display:none; color:#c979f0; font-weight:700;"></p>
@@ -159,6 +169,5 @@
 
 <script src="js/main.js"></script>
 <script src="js/agendamento.js"></script>
-<script>lucide.createIcons();</script>
 </body>
 </html>

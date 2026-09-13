@@ -3,7 +3,7 @@
   Paleta: preto grafite, roxo e neutros.
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 :root {
   --bg: #0c0a12;
@@ -17,6 +17,7 @@
 
   --cream: #f6f1ea;
   --muted: #b6aac7;
+  --display-font: 'Luckiest Guy', cursive;
 
   --radius: 18px;
   --maxw: 1120px;
@@ -61,9 +62,9 @@ a {
 h1,
 h2,
 h3 {
-  font-family: 'Bungee', cursive;
+  font-family: var(--display-font);
   font-weight: 400;
-  letter-spacing: .5px;
+  letter-spacing: 0;
   line-height: 1.15;
   margin: 0 0 .5em;
 }
@@ -157,7 +158,7 @@ p {
   display: flex;
   align-items: baseline;
   gap: 2px;
-  font-family: 'Bungee', cursive;
+  font-family: var(--display-font);
   font-size: 1.3rem;
   white-space: nowrap;
 }
@@ -287,7 +288,7 @@ p {
 
 .eyebrow-tag {
   display: inline-block;
-  font-family: 'Bungee', cursive;
+  font-family: var(--display-font);
   font-size: .8rem;
   color: var(--bg);
   background: linear-gradient(95deg, var(--purple), var(--purple-light));
@@ -322,7 +323,7 @@ p {
 }
 
 .stat-row .stat b {
-  font-family: 'Bungee', cursive;
+  font-family: var(--display-font);
   font-size: 1.6rem;
   display: block;
   background: linear-gradient(95deg, var(--purple-light), var(--purple));
@@ -352,7 +353,7 @@ p {
 }
 
 .hero-art .tag {
-  font-family: 'Bungee', cursive;
+  font-family: var(--display-font);
   text-align: center;
   font-size: clamp(2.2rem, 6vw, 3rem);
   line-height: 1.05;
@@ -392,7 +393,7 @@ section:last-of-type {
 }
 
 .section-head .kicker {
-  font-family: 'Bungee', cursive;
+  font-family: var(--display-font);
   color: var(--purple-light);
   font-size: .85rem;
   display: block;
@@ -556,7 +557,7 @@ footer {
 }
 
 .footer-grid h4 {
-  font-family: 'Bungee', cursive;
+  font-family: var(--display-font);
   font-size: .95rem;
   color: var(--purple-light);
   margin: 0 0 14px;
@@ -597,7 +598,7 @@ footer {
 }
 
 .page-header .kicker {
-  font-family: 'Bungee', cursive;
+  font-family: var(--display-font);
   color: var(--purple-light);
   font-size: .85rem;
 }
@@ -659,7 +660,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Bungee', cursive;
+  font-family: var(--display-font);
   font-size: 1.05rem;
   color: #1b0f04;
   box-shadow: 0 6px 14px rgba(0, 0, 0, .4);
@@ -676,7 +677,7 @@ footer {
 }
 
 .style-card-content h3 {
-  font-family: 'Bungee', cursive;
+  font-family: var(--display-font);
   font-size: 1.45rem;
   margin: 0 0 10px;
   color: var(--cream);
@@ -768,6 +769,65 @@ footer {
   margin-bottom: 8px;
 }
 
+.model-list {
+  max-width: 760px;
+  margin: 50px auto 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-card);
+}
+
+.model-list-head,
+.model-list a {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 17px 24px;
+}
+
+.model-list-head {
+  color: var(--purple-light);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: var(--bg-soft);
+}
+
+.model-list a {
+  border-top: 1px solid var(--line);
+  color: var(--cream);
+  transition: background .2s ease, padding-left .2s ease;
+}
+
+.model-list a:hover {
+  background: rgba(155, 48, 217, .12);
+  padding-left: 29px;
+}
+
+.model-list a strong {
+  color: var(--purple-light);
+  white-space: nowrap;
+}
+
+.model-notes {
+  max-width: 760px;
+  margin: 0 auto 20px;
+  padding: 0 4px;
+}
+
+.model-notes p {
+  font-size: .9rem;
+  margin-bottom: 10px;
+}
+
+.model-notes a {
+  color: var(--purple-light);
+  font-weight: 800;
+}
+
 /* ============================ AGENDAMENTO PAGE ============================ */
 
 .booking-layout {
@@ -815,7 +875,7 @@ footer {
 }
 
 .calendar-head .month-label {
-  font-family: 'Bungee', cursive;
+  font-family: var(--display-font);
   font-size: 1.05rem;
   text-transform: capitalize;
 }
@@ -894,11 +954,13 @@ footer {
   margin-bottom: 12px;
 }
 
-.slot-grid {
+.slot-grid  {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
 }
+
+
 
 .slot-btn {
   padding: 10px 6px;
@@ -1033,6 +1095,15 @@ footer {
 }
 
 @media (max-width:520px) {
+  .model-list-head,
+  .model-list a {
+    padding: 15px 17px;
+  }
+
+  .model-list a:hover {
+    padding-left: 21px;
+  }
+
   .slot-grid {
     grid-template-columns: repeat(2, 1fr);
   }

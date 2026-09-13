@@ -61,8 +61,8 @@ function renderCalendar() {
   for (let day = 1; day <= daysInMonth; day++) {
     const cellDate = new Date(viewDate.getFullYear(), viewDate.getMonth(), day);
     const isPast = cellDate < today;
-    const isSunday = cellDate.getDay() === 0;
-    const disabled = isPast || isSunday;
+    const isWeekday = cellDate.getDay() !== 0 && cellDate.getDay() !== 6;
+    const disabled = isPast || isWeekday;
 
     const classes = ['day-cell'];
     if (disabled) classes.push('disabled');
@@ -179,7 +179,7 @@ Cidade: ${cityLabel} (taxa de deslocamento: R$ ${fee},00)
 ${obs ? `Observações: ${obs}` : ''}`;
 
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-  window.open(url, '_blank');
+  window.open(url, '_blank', 'noopener,noreferrer');
 });
 
 // -------------------------------- init ----------------------------------------
